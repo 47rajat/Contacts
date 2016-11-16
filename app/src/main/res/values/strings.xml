@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="permission_denied_message">Need permission to display contacts.</string>
+    <string name="no_contact">NA</string>
+</resources>

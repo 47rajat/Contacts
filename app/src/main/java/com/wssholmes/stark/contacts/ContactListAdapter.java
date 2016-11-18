@@ -50,20 +50,15 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         if(mCursor != null){
             holder.mContactName.setText(mCursor.getString(MainActivity.CONTACT_NAME));
             holder.mContactEmail.setText(mCursor.getString(MainActivity.CONTACT_EMAIL));
-            holder.mContactLastContact.setText(getDate(mCursor.getLong(MainActivity.CONTACT_LAST_CONTACTED)));
-
-            if(mCursor.getInt(MainActivity.CONTACT_HAS_PHONE_NUMBER) == 1){
-                holder.mContactNumber.setText(mCursor.getString(MainActivity.CONTACT_PHONE_NUMBER));
-                holder.mContactNumber.setVisibility(View.VISIBLE);
-            }
+            holder.mContactLastContact.setText(mContext.getString(R.string.contact_last_contact,
+                    getDate(mCursor.getLong(MainActivity.CONTACT_LAST_CONTACTED))));
             if(mCursor.getString(MainActivity.CONTACT_PHOTO) != null) {
                 Picasso.with(mContext)
                         .load(Uri.parse(mCursor.getString(MainActivity.CONTACT_PHOTO)))
                         .into(holder.mContactImage);
             } else{
-                Picasso.with(mContext)
-                        .load(R.mipmap.ic_launcher)
-                        .into(holder.mContactImage);
+                holder.mContactImage.setImageDrawable(mContext.getResources().
+                        getDrawable(R.drawable.ic_account_box_black_24dp));
             }
         }
 
@@ -85,7 +80,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         private TextView mContactEmail;
         private ImageView mContactImage;
         private TextView mContactLastContact;
-        private TextView mContactNumber;
 
         public ContactListAdapterViewHolder(View itemView) {
             super(itemView);
@@ -94,7 +88,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             mContactEmail = (TextView) itemView.findViewById(R.id.contact_email);
             mContactImage = (ImageView) itemView.findViewById(R.id.contact_photo);
             mContactLastContact = (TextView) itemView.findViewById(R.id.contact_last_contact);
-            mContactNumber = (TextView) itemView.findViewById(R.id.contact_number);
         }
     }
 

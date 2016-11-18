@@ -3,5 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="contact_card_margin">4dp</dimen>
-    <dimen name="contact_card_height">200dp</dimen>
+    <dimen name="contact_card_height">300dp</dimen>
+    <dimen name="contact_detail_padding">8dp</dimen>
+    <dimen name="contact_detail_margin">2dp</dimen>
+    <dimen name="contact_partion_line_thickness">2dp</dimen>
 </resources>

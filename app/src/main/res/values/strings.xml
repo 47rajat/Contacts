@@ -1,5 +1,10 @@
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/tools">
     <string name="app_name">Contacts</string>
     <string name="permission_denied_message">Need permission to display contacts.</string>
-    <string name="no_contact">NA</string>
+    <string name="no_contact">NEVER</string>
+    <string name="contact_image_desc">Contact image</string>
+    <string name="contact_name">NAME:<xliff:g id="name">%1$s</xliff:g> </string>
+    <string name="contact_email"><xliff:g id="email">%1$s</xliff:g> </string>
+    <string name="contact_phone"><xliff:g id="phone">%1$s</xliff:g> </string>
+    <string name="contact_last_contact">LAST CONTACT:<xliff:g id="last_contact">%1$s</xliff:g> </string>
 </resources>

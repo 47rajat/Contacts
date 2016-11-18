@@ -21,12 +21,11 @@ class MainActivity extends AppCompatActivity implements android.app.LoaderManage
     private static final int CONTACTS_LOADER_ID = 0;
 
     private static final String[] PROJECTION = new String[] { ContactsContract.RawContacts._ID,
-            ContactsContract.Contacts.DISPLAY_NAME,
-            ContactsContract.Contacts.PHOTO_THUMBNAIL_URI,
-            ContactsContract.CommonDataKinds.Email.DATA,
-            ContactsContract.Contacts.LAST_TIME_CONTACTED,
-            ContactsContract.Contacts.HAS_PHONE_NUMBER,
-            ContactsContract.CommonDataKinds.Phone.NUMBER}; //TODO: find a way to get mobile number, this is not working.
+            ContactsContract.CommonDataKinds.Contactables.DISPLAY_NAME,
+            ContactsContract.CommonDataKinds.Contactables.PHOTO_URI,
+            ContactsContract.CommonDataKinds.Contactables.DATA,
+            ContactsContract.CommonDataKinds.Contactables.LAST_TIME_CONTACTED,
+            ContactsContract.CommonDataKinds.Contactables.HAS_PHONE_NUMBER};
 
     public static final int CONTACT_ID = 0;
     public static final int CONTACT_NAME = 1;
@@ -34,7 +33,6 @@ class MainActivity extends AppCompatActivity implements android.app.LoaderManage
     public static final int CONTACT_EMAIL = 3;
     public static final int CONTACT_LAST_CONTACTED= 4;
     public static final int CONTACT_HAS_PHONE_NUMBER = 5;
-    public static final int CONTACT_PHONE_NUMBER = 6;
 
 
 
@@ -95,7 +93,7 @@ class MainActivity extends AppCompatActivity implements android.app.LoaderManage
     @Override
     public android.content.Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new android.content.CursorLoader(this,
-                ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                ContactsContract.CommonDataKinds.Contactables.CONTENT_URI,
                 PROJECTION,
                 FILTER,
                 null,

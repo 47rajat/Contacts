@@ -14,7 +14,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-class MainActivity extends AppCompatActivity implements android.app.LoaderManager.LoaderCallbacks<Cursor> {
+public class MainActivity extends AppCompatActivity implements android.app.LoaderManager.LoaderCallbacks<Cursor> {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     private static final int CONTACTS_PERMISSION_ID = 100;
@@ -36,15 +36,15 @@ class MainActivity extends AppCompatActivity implements android.app.LoaderManage
 
 
 
-    private static final String FILTER = ContactsContract.CommonDataKinds.Email.DATA
+    private static final String FILTER = ContactsContract.CommonDataKinds.Contactables.DATA
             + " NOT LIKE ''";
 
     String ORDER = "CASE WHEN "
-            + ContactsContract.Contacts.DISPLAY_NAME
+            + ContactsContract.CommonDataKinds.Contactables.DISPLAY_NAME
             + " NOT LIKE '%@%' THEN 1 ELSE 2 END, "
-            + ContactsContract.Contacts.DISPLAY_NAME
+            + ContactsContract.CommonDataKinds.Contactables.DISPLAY_NAME
             + ", "
-            + ContactsContract.CommonDataKinds.Email.DATA
+            + ContactsContract.CommonDataKinds.Contactables.DATA
             + " COLLATE NOCASE";
 
     private RecyclerView mContactList;
